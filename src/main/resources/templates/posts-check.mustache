@@ -1,0 +1,86 @@
+{{>layout/header}}
+<style>
+        *{
+            border-collapse: collapse;
+            margin: 0%;
+            padding: 0%;
+            text-decoration: none;
+            color: black;
+            list-style: none;
+        }
+        .blog_title{
+            margin: 8%;
+            text-align: center;
+            padding-bottom: 10%;
+        }
+        .edit_btn{
+            color: black;
+            font-size: 80%;
+            font-style: italic;
+            padding-right: 10%;
+        }
+        .delete_btn{
+            font-size: 80%;
+            font-style: italic;
+        }
+        .title{
+            padding-bottom: 3%;
+        }
+        .write_info{
+            flex:1;
+            display: flex;
+        }
+        .btn{
+            display: flex;
+        }
+        .date{
+            padding-left: 1%;
+            color: rgb(153, 153, 153);
+        }
+        .post_form{
+            padding-left: 10%;
+            padding-right: 10%;
+        }
+        .under{
+            display: flex;
+        }
+        .content{
+            font-size: 120%;
+            padding-bottom: 25%;
+        }
+        .id_info{ display: none;}
+     </style>
+<a href="/" style="text-decoration: none;">
+    <h1 class="blog_title">HEE YEOUNG'S BLOG </h1>
+</a>
+
+<input type="text" class="id_info" id="id" value="{{post.id}}" readonly>
+
+<div class="post_form">
+    <h2 class="title">{{post.title}}</h2>
+    <div class="under">
+        <div class="write_info">
+            <div class="writer">
+                {{post.author}}
+            </div>
+            <div class="date">
+                {{post.modifiedDate}}
+            </div>
+        </div>
+        <div class="btn">
+            <a href="/posts/update/{{post.id}}" role="button" class="edit_btn">EDIT</a>
+            <div type="button" class="delete_btn"id="btn-delete">DELETE</div>
+        </div>
+    </div>
+    <hr style="border:solid 0.5px black">
+    <div class="content">
+        {{post.content}}
+    </div>
+</div>
+
+
+
+
+
+
+{{>layout/footer}}
