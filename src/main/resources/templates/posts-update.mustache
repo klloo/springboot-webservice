@@ -46,7 +46,6 @@
         <form>
             <div class="read_only">
                 <input type="text" class="form-control" id="id" value="{{post.id}}" readonly>
-                <input type="text" class="form-control" id="author" value="{{post.author}}"readonly>
             </div>
             <div class="form-group">
                 <label for="title">TITLE</label>
@@ -58,7 +57,7 @@
             </div>
         </form>
         <div class="btn">
-            <a href="/" class="cancel_btn" role="button" >CANCEL</a>
+            <a href="/posts/{{post.id}}" class="cancel_btn" role="button" >CANCEL</a>
             <div type="button" class="write_btn" id="btn-update">WRITE</div>
         </div>
     </div>
