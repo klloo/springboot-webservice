@@ -30,6 +30,7 @@ repositories {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    compile('org.springframework.security:spring-security-test')
     compile('org.springframework.session:spring-session-jdbc')
     compile('org.springframework.boot:spring-boot-starter-oauth2-client')
     compile('org.springframework.boot:spring-boot-starter-mustache')

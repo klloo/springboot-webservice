@@ -101,12 +101,17 @@
 <div class="table_div">
 
 
+{{#userName}}
     <div class="write_btn" style="float:right">
         <div>
             <a href="/posts/save" role="button"
                class="btn btn_primary">WRITE</a>
         </div>
     </div>
+{{/userName}}
+    {{^userName}}
+        <br><br><br>
+    {{/userName}}
     <!-- 목록 출력 영역 -->
     <table class="table">
         <thead class="thead">
