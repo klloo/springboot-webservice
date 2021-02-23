@@ -38,8 +38,8 @@
             color: rgb(153, 153, 153);
         }
         .post_form{
-            padding-left: 10%;
-            padding-right: 10%;
+            padding-left: 15%;
+            padding-right: 15%;
         }
         .under{
             display: flex;
@@ -67,10 +67,12 @@
                 {{post.modifiedDate}}
             </div>
         </div>
-        <div class="btn">
-            <a href="/posts/update/{{post.id}}" role="button" class="edit_btn">EDIT</a>
-            <div type="button" class="delete_btn"id="btn-delete">DELETE</div>
-        </div>
+        {{#iswriter}}
+            <div class="btn">
+                <a href="/posts/update/{{post.id}}" role="button" class="edit_btn">EDIT</a>
+                <div type="button" class="delete_btn"id="btn-delete">DELETE</div>
+            </div>
+        {{/iswriter}}
     </div>
     <hr style="border:solid 0.5px black">
     <div class="content" style="white-space: pre-line;"> <!--줄바꿈 해주는거-->

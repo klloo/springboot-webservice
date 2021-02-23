@@ -24,7 +24,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         //URL별 권한 관리를 설정하는 옵션의 시작점. 이걸 선언해야 앤트매쳐 쓸 수 있음
         http.authorizeRequests()
                 .antMatchers("/","/css/**","/images/**","/js/**", "/h2-console/**","/profile").permitAll() // 권한관리 대상을 지정하는 옵션. URL, HTTP메소드별로 관리 가능 permitAll로 전체 열람권한 주기
-                .antMatchers("/api/v1/**").hasRole(Role.USER.name()) //api/v1/어쩌구 API는 USER만 가능
                 .anyRequest().authenticated(); //설정된 값들 이외 나머지 URL ..인증된 사용자만 허용
 
         //로그아웃 시 설정

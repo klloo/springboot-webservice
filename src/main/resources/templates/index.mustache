@@ -131,7 +131,14 @@
                 <td><script>
                     document.write((i--));
                 </script></td>
-                <td><a href="/posts/{{id}}">{{title}}</a></td>
+                <td>
+                {{#userName}}
+                    <a href="/posts/{{id}}">{{title}}</a>
+                {{/userName}}
+                    {{^userName}}
+                        <a onclick="alert('로그인 하세요');" style="cursor:pointer">{{title}}</a>
+                    {{/userName}}
+                </td>
                 <td>{{author}}</td>
                 <td>{{modifiedDate}}</td>
             </tr>

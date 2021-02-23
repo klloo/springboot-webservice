@@ -13,6 +13,7 @@ public class PostsResponseDto {
     private String content;
     private String author;
     private String modifiedDate;
+    private String email;
 
     public PostsResponseDto(Posts entity) {
         String formatDate = entity.getModifiedDate()
@@ -21,6 +22,7 @@ public class PostsResponseDto {
         this.title = entity.getTitle();
         this.content = entity.getContent();
         this.author = entity.getAuthor();
+        this.email = entity.getEmail();
         this.modifiedDate = formatDate;
     }
 }

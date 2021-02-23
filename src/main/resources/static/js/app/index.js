@@ -12,12 +12,14 @@ var main = {
         $('#btn-delete').on('click', function () {
             _this.delete();
         });
+
     },
     save : function () {
         var data = {
             title: $('#title').val(),
             author: $('#author').val(),
-            content: $('#content').val()
+            content: $('#content').val(),
+            email: $('#email').val()
         };
 
         $.ajax({
@@ -68,6 +70,7 @@ var main = {
             alert(JSON.stringify(error));
         });
     }
+
 
 };
 

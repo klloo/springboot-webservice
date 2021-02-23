@@ -33,14 +33,17 @@ public class IndexController {
     }
 
     @GetMapping("/posts/{id}")
-    public String postsCheck(@PathVariable Long id,Model model) {
+    public String postsCheck(@PathVariable Long id,Model model, @LoginUser SessionUser user) {
         PostsResponseDto dto = postsService.findById(id);
+        boolean isWriter = user.getEmail().equals(dto.getEmail());
+        model.addAttribute("iswriter",isWriter);
         model.addAttribute("post",dto);
         return "posts-check";
     }
 
     @GetMapping("/posts/save")
-    public String postsSave(){
+    public String postsSave(Model model, @LoginUser SessionUser user){
+        model.addAttribute("userEmail",user.getEmail());
         return "posts-save";
     }
 
