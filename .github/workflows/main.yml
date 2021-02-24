@@ -23,6 +23,10 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.8
+  
+    - name: Grant excute permission for gradlew
+      run: chmod +x gradlew
+      shell: bash
         
     - name: Build with Gradel
       run: ./gradlew build
@@ -41,4 +45,8 @@ jobs:
         
     - name: Upload to S3
       run: aws s3 cp --region ap-northeast-2 ./$GITHUB_SHA.zip s3://$S3_BUCKET_NAME/$PROJECT_NAME/$GITHUB_SHA.zip
+      
+    - name: Code Deploy
+      run: aws deploy create-deployment --application-name springboot2-webservice --deployment-config-name CodeDeployDefault.AllAtOnce --deployment-group-name springboot2-webservice-group --s3-location bucket=$S3_BUCKET_NAME,bundleType=zip,key=$PROJECT_NAME/$GITHUB_SHA.zip
+
 
